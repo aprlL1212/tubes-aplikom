@@ -43,6 +43,10 @@ def show_msgs(errs, warns=()):
 
 # 2 Menu Utama yang Jelas dan Terpisah
 PAGES = ["🏗️ Perhitungan Portal 2D", "🚚 Simulasi Beban Bergerak"]
+
+if "redirect_page" in ss:
+    ss.nav_page = ss.pop("redirect_page")
+
 if "nav_page" not in ss:
     ss.nav_page = PAGES[0]
 
@@ -277,7 +281,7 @@ else:
             new_model = moving_load.to_structura_model(L=L_val, P=P_val, x=x_val, num_elements=n_elem)
             new_tables = examples.from_model(new_model)
             set_tables(new_tables, f"Jembatan L={L_val:.0f}m (Truk x={x_val:.1f}m, P={P_val:.0f}kN)")
-            ss.nav_page = "🏗️ Perhitungan Portal 2D"
+            ss.redirect_page = "🏗️ Perhitungan Portal 2D"
             st.success("Model berhasil dikonversi dan dialihkan ke menu Perhitungan Portal 2D!")
             st.rerun()
             
