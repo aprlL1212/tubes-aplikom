@@ -7,13 +7,14 @@ Aplikasi pembelajaran analisis **portal 2D** (balok & kolom) dengan **metode kek
 ```bash
 python -m venv .venv && source .venv/bin/activate   # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
-streamlit run app.py
+streamlit run streamlit_app.py
 python -m pytest -q          # uji terhadap solusi teoritis
 ```
 
 ## Struktur folder
 ```
-app.py                    # antarmuka Streamlit (Dashboard, Beban Bergerak, Input, Analisis, Proyek, Laporan)
+streamlit_app.py          # entry point antarmuka Streamlit
+app.py                    # UI utama (Dashboard, Beban Bergerak, Input, Analisis, Proyek, Laporan)
 structura/moving_load.py  # modul beban bergerak & simulasi interaktif (animasi 60 FPS, SFD/BMD, garis pengaruh)
 structura/engine.py       # mesin analisis: matriks kekakuan, solusi, reaksi, gaya dalam
 structura/validation.py   # konversi tabel→model, validasi input
